@@ -69,7 +69,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val question: Question = mQuestionList!![mCurrentPosition - 1]
         ivImage?.setImageResource(question.image)
         progressBar?.progress = mCurrentPosition
-        tvProgress?.text = "$mCurrentPosition/${progressBar?.max}"
+        tvProgress?.text =  getString(R.string.progress_bar_text, mCurrentPosition, progressBar?.max)
         tvQuestion?.text = question.question
         tvOptionOne?.text = question.optionOne
         tvOptionTwo?.text = question.optionTwo
@@ -77,9 +77,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tvOptionFour?.text = question.optionFour
 
         if(mCurrentPosition == mQuestionList!!.size){
-            btnSubmit?.text = "FINISH"
+            btnSubmit?.text = getString(R.string.btn_finish)
         }else{
-            btnSubmit?.text = "SUBMIT"
+            btnSubmit?.text = getString(R.string.btn_submit)
         }
     }
 
@@ -98,7 +98,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             options.add(3, it)
         }
         for(option in options){
-            option.setTextColor(Color.parseColor("#7A8089"))
+            //option.setTextColor(Color.parseColor("#7A8089"))
+            option.setTextColor(getColor(R.color.mGrey))
             option.typeface = Typeface.DEFAULT
             option.background = ContextCompat.getDrawable(this, R.drawable.default_option_border_bg)
         }
@@ -110,7 +111,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         mSelectedOptionPosition = selectedOptionNum
 
-        tv.setTextColor(Color.parseColor("#363A43"))
+        //tv.setTextColor(Color.parseColor("#363A43"))
+        tv.setTextColor(getColor(R.color.mDarkGrey))
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(this, R.drawable.selected_option_border_bg)
     }
@@ -164,9 +166,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
                     if(mCurrentPosition == mQuestionList!!.size){
-                        btnSubmit?.text = "FINISH"
+                        btnSubmit?.text = getString(R.string.btn_finish)
                     }else{
-                        btnSubmit?.text = "GO TO NEXT QUESTION"
+                        btnSubmit?.text = getString(R.string.btn_next_question)
                     }
 
                     mSelectedOptionPosition = 0

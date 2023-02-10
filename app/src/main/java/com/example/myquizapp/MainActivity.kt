@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnStart: Button = findViewById<Button>(R.id.btnStart)
+        val btnStart: Button = findViewById(R.id.btnStart)
         val etName: EditText = findViewById(R.id.etName)
         btnStart.setOnClickListener {
             if(etName.text.isEmpty()){

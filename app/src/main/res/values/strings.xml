@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyQuizApp</string>
+    <string name="progress_bar_text">%d/%d</string>
+    <string name="btn_finish">FINISH</string>
+    <string name="btn_submit">SUBMIT</string>
+    <string name="btn_next_question">GO TO NEXT QUESTION</string>
+    <string name="results">Your score is %d out of %d</string>
 </resources>
